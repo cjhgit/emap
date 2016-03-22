@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>SVG 地图</title>
+<style>
+	.demo {}
+    pre {
+        padding: 10px;
+        border: 2px solid #000080;
+        border-radius: 5px;
+    }
+</style>
+</head>
+<body>
+<div class="demo">
+    <h2>默认</h2>
+    <div id="china-map-default"></div>
+    <pre><code>
+$('#china-map-default').emap();
+    </code></pre>
+</div>
+<div class="demo">
+    <h2>自定义大小</h2>
+    <div id="china-map-size"></div>
+    <pre><code>
+$('#china-map-size').emap({
+    width: 800,
+    height: 800
+});
+    </code></pre>
+</div>
+
+<div class="demo">
+    <h2>显示名称</h2>
+    <div id="china-map-name"></div>
+    <pre><code>
+$('#china-map-name').emap({
+    showName: true,
+});
+    </code></pre>
+</div>
+<div class="demo">
+    <h2>自定义颜色</h2>
+    <div id="china-map-hover"></div>
+    <pre><code>
+$('#china-map-hover').emap({
+    defaultColor: '#67eb6a',
+    hoverColor: '#24d228'
+});
+    </code></pre>
+</div>
+<div class="demo">
+    <h2>多彩</h2>
+    <div id="china-map-colorful"></div>
+    <pre><code>
+$('#china-map-colorful').emap({
+    colorful: true
+});
+    </code></pre>
+</div>
+<div class="demo">
+    <h2>自定义颜色</h2>
+    <div id="china-map-color"></div>
+    <pre><code>
+$('#china-map-color').emap({
+    data: {
+        guangdong: {
+            color: '#f34951'
+        },
+        beijing: {
+            color: '#497df3'
+        }
+    }
+});
+    </code></pre>
+</div>
+<div class="demo">
+    <h2>事件回调（点击地图）</h2>
+    <div id="china-map-callback"></div>
+    <pre><code>
+$('#china-map-callback').emap({
+    click: function(province) {
+    	alert(province.name);
+    }
+});
+    </code></pre>
+</div>
+<div class="demo">
+    <h2>可选择</h2>
+    <div id="china-map-selectable"></div>
+    <pre><code>
+$('#china-map-callback').emap({
+    click: function(province) {
+    	alert(province.name);
+    }
+});
+    </code></pre>
+</div>
+<div class="demo">
+    <h2>显示省会（未完成）</h2>
+    <div id="china-map-capital"></div>
+    <pre><code>
+        $('#china-map-callback').emap({
+        click: function(province) {
+        alert(province.name);
+        }
+        });
+    </code></pre>
+</div>
+</div>
+<script src="../dep/jquery/jquery-1.10.2.min.js"></script>
+<script src="../dep/raphael/raphael-min.js"></script>
+<script src="../src/china.js"></script>
+<script src="../src/emap.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $('#china-map-default').emap();
+        $('#china-map-size').emap({
+            width: 800,
+            height: 800,
+        });
+        $('#china-map-name').emap({
+            showName: true,
+        });
+        $('#china-map-colorful').emap({
+            colorful: true
+        });
+        $('#china-map-color').emap({
+        	data: {
+        		guangdong: {
+        			color: '#f34951'
+        		},
+        		beijing: {
+        			color: '#497df3'
+        		}
+			}
+        });
+        $('#china-map-callback').emap({
+            click: function(province) {
+            	alert(province.name);
+            }
+        });
+        $('#china-map-hover').emap({
+            defaultColor: '#67eb6a',
+            hoverColor: '#24d228'
+        });
+        $('#china-map-selectable').emap({
+            selectable: true
+        });
+        $('#china-map-capital').emap({
+            showCapital: true
+        });
+    });
+</script>
+</body>
+</html>
